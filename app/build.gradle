@@ -41,4 +41,5 @@ dependencies {
     implementation 'com.google.code.findbugs:jsr305:3.0.1'
     /*Declare compile dependency on the project :lib2msJokes*/
     implementation project(':lib2msJokes')
+    implementation project(":liband2msjokes")
 }

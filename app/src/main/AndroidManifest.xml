@@ -18,12 +18,19 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
         <activity android:name=".JokesActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--Include libandActivity-->
+        <activity
+            android:name="com.example.liband2msjokes.libandActivity"
+            android:label="Android Library"
+            android:parentActivityName=".JokesActivity"
+            tools:targetApi="jelly_bean" />
         <!--Include the AdActivity configChanges and theme. -->
         <activity
             android:name="com.google.android.gms.ads.AdActivity"

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".libandFragment">
+    <!--Using this TextView to style the joke receive
+     from Java Library-->
+    <TextView
+        android:id="@+id/liband_tv"
+        style="@style/Base.TextAppearance.AppCompat.Medium"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:text="@string/liband_tv_fragment"
+        android:textStyle="bold" />
+</FrameLayout>

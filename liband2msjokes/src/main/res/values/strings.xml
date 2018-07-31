@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">liband2msJokes</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="liband_tv_fragment">I am receiving intent extra from a Java Lib : </string>
+</resources>

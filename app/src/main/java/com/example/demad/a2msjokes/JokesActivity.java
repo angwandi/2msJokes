@@ -1,14 +1,15 @@
 package com.example.demad.a2msjokes;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.example.lib2msjokes.JavaJokes;
+import com.example.liband2msjokes.libandActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,8 +23,6 @@ public class JokesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.jokes_activity);
         ButterKnife.bind(this);
-        JavaJokes myJoker = new JavaJokes();
-        /* jokesTv.setText(myJoker.getJokes());*/
         buttonClick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,7 +52,16 @@ public class JokesActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-        Toast.makeText(this, "derp", Toast.LENGTH_SHORT).show();
+/*
+        Making the button display a joke
+        retrieved from  Java joke telling library in an Android Library using
+        intent Extra.
+*/
+        JavaJokes jokesFromJavaLab = new JavaJokes();
+        String jokes2ms = jokesFromJavaLab.getJokes();
+        Intent intent = new Intent(this, libandActivity.class);
+        intent.putExtra("jokes", jokes2ms);
+        startActivity(intent);
     }
 }
 
