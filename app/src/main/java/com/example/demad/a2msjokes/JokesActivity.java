@@ -22,8 +22,6 @@ public class JokesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.jokes_activity);
         ButterKnife.bind(this);
-        JavaJokes myJoker = new JavaJokes();
-        /* jokesTv.setText(myJoker.getJokes());*/
         buttonClick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,7 +51,13 @@ public class JokesActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-        Toast.makeText(this, "derp", Toast.LENGTH_SHORT).show();
+/*
+        Making the button display a toast showing a joke
+        retrieved from your Java joke telling library.
+*/
+        JavaJokes jokesFromJavaLab = new JavaJokes();
+        String jokes2ms = jokesFromJavaLab.getJokes();
+        Toast.makeText(this, jokes2ms, Toast.LENGTH_LONG).show();
     }
 }
 
