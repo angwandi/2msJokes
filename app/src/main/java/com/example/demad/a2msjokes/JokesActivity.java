@@ -53,8 +53,8 @@ public class JokesActivity extends AppCompatActivity {
 
     public void tellJoke(View view) {
 /*
-        Making the button display a joke
-        retrieved from  Java joke telling library in an Android Library using
+        Making the button display a joke in an Android library
+        retrieved from  Java joke telling library  using
         intent Extra.
 */
         JavaJokes jokesFromJavaLab = new JavaJokes();
