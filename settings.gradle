@@ -1,1 +1,1 @@
-include ':app', ':lib2msJokes', ':liband2msjokes', ':jokes2msbackend'
+include ':app', ':lib2msJokes', ':liband2msjokes'
