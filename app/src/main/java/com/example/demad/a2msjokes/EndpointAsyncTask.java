@@ -24,7 +24,7 @@ class EndpointAsyncTask extends AsyncTask<JokesFragment, Void, String> {
         jokesFragment = params[0];
         context = jokesFragment.getActivity();
         if (myApiService == null) {  // Only do this once
-            MyApi.Builder builder = new
+           /* MyApi.Builder builder = new
                     MyApi.Builder(AndroidHttp.newCompatibleTransport(),
                     new AndroidJsonFactory(), null)
                     // options for running against local devappserver
@@ -37,10 +37,10 @@ class EndpointAsyncTask extends AsyncTask<JokesFragment, Void, String> {
                                                        abstractGoogleClientRequest) {
                             abstractGoogleClientRequest.setDisableGZipContent(true);
                         }
-                    });
-          /*  MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport()
+                    });*/
+            MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport()
                     , new AndroidJsonFactory(), null)
-                    .setRootUrl("https://jokesinno.appspot.com/_ah/spi/");*/
+                    .setRootUrl("https://jokesinno.appspot.com/_ah/api/");
             // end options for devappserver
             myApiService = builder.build();
         }
@@ -53,14 +53,9 @@ class EndpointAsyncTask extends AsyncTask<JokesFragment, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
-        // Create Intent to launch JokeFactory Activity
         Intent intent = new Intent(context, libandActivity.class);
-        // Put the string in the envelope
         intent.putExtra(libandActivity.KEY_JOKES, result);
         context.startActivity(intent);
-/*
-        Toast.makeText(context, result, Toast.LENGTH_LONG).show();
-*/
         jokesFragment.loadedJoke = result;
         jokesFragment.displayJokeActivity();
     }
