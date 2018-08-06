@@ -40,7 +40,7 @@ class EndpointAsyncTask extends AsyncTask<JokesFragment, Void, String> {
                     });*/
             MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport()
                     , new AndroidJsonFactory(), null)
-                    .setRootUrl("https://jokesinno.appspot.com/_ah/api/");
+                    .setRootUrl("https://jokesinno.appspot.com/_ah/spi/");
             // end options for devappserver
             myApiService = builder.build();
         }
