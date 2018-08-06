@@ -1,5 +1,6 @@
 package com.example.liband2msjokes;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -29,10 +30,13 @@ public class libandFragment extends Fragment {
         TextView newText = root.findViewById(R.id.liband_tv);
         String newString;
         /*Get Intent from JokesActivity button click*/
-        Bundle bundle = Objects.requireNonNull(this.getActivity()).getIntent().getExtras();
-        assert bundle != null;
-        newString = bundle.getString("jokes");
-        newText.setText(newString);
+        Intent intent = Objects.requireNonNull(getActivity()).getIntent();
+        newString = intent.getStringExtra(getString(R.string.envelopeJokes));
+        if (newString != null) {
+            newText.setText(newString);
+        } else {
+            newText.setText(R.string.nojokes);
+        }
         return root;
     }
 }

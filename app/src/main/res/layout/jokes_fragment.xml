@@ -19,9 +19,13 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/instructions_tv"
         android:text="@string/button_text" />
-    <!--
-        android:onClick="tellJoke"
-    -->
+
+    <ProgressBar
+        android:id="@+id/progressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+
     <com.google.android.gms.ads.AdView
         android:id="@+id/adv"
         android:layout_width="wrap_content"
