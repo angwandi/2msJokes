@@ -1,5 +1,6 @@
 package com.example.demad.a2msjokes;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -16,7 +17,8 @@ import java.io.IOException;
 
 class EndpointAsyncTask extends AsyncTask<JokesFragment, Void, String> {
     private static MyApi myApiService = null;
-    JokesFragment jokesFragment = new JokesFragment();
+    private JokesFragment jokesFragment = new JokesFragment();
+    @SuppressLint("StaticFieldLeak")
     private Context context;
 
     @Override
@@ -24,23 +26,23 @@ class EndpointAsyncTask extends AsyncTask<JokesFragment, Void, String> {
         jokesFragment = params[0];
         context = jokesFragment.getActivity();
         if (myApiService == null) {  // Only do this once
-           /* MyApi.Builder builder = new
+            MyApi.Builder builder = new
                     MyApi.Builder(AndroidHttp.newCompatibleTransport(),
                     new AndroidJsonFactory(), null)
                     // options for running against local devappserver
                     // ­ 10.0.2.2 is localhost's IP address in Android emulator
                     // ­ turn off compression when running against local devappserver
-                    .setRootUrl("http://10.0.2.2:8080/_ah/spi/")
+                    .setRootUrl("http://192.168.232.2:8080/_ah/api/")
                     .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
                         @Override
                         public void initialize(AbstractGoogleClientRequest<?>
                                                        abstractGoogleClientRequest) {
                             abstractGoogleClientRequest.setDisableGZipContent(true);
                         }
-                    });*/
-            MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport()
+                    });
+           /* MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport()
                     , new AndroidJsonFactory(), null)
-                    .setRootUrl("https://jokesinno.appspot.com/_ah/spi/");
+                    .setRootUrl("https://jokesinno.appspot.com/_ah/api/");*/
             // end options for devappserver
             myApiService = builder.build();
         }
